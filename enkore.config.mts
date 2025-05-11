@@ -12,12 +12,22 @@ function getx509ExtensionNames(projectRoot: string) {
 		projectRoot, "project", "src", "types", "x509Extensions"
 	)
 
-	let extensionNames: string[] = []
+	let extensionNames: {extensionName: string, propName: string}[] = []
 
 	for (const entry of fs.readdirSync(extensionsDir)) {
 		if (!entry.endsWith(".mts")) continue
 
-		extensionNames.push(entry.slice(0, -4))
+		const extensionName = entry.slice(0, -4)
+		let propName = lcfirst(extensionName)
+
+		if (extensionName === "CRLDistributionPoints") {
+			propName = "crlDistributionPoints"
+		}
+
+		extensionNames.push({
+			extensionName,
+			propName
+		})
 	}
 
 	return extensionNames
@@ -43,20 +53,14 @@ export const config: unknown = createConfig({
 
 				let code = ``
 
-				for (const extensionName of extensionNames) {
+				for (const {extensionName} of extensionNames) {
 					code += `import type {${extensionName}} from "./x509Extensions/${extensionName}.mts"\n`
 				}
 
 				code += "\n"
 				code += `export type x509Extensions = Partial<{\n`
 
-				for (const extensionName of extensionNames) {
-					let propName = lcfirst(extensionName)
-
-					if (extensionName === "CRLDistributionPoints") {
-						propName = "crlDistributionPoints"
-					}
-
+				for (const {extensionName, propName} of extensionNames) {
 					code += `\t"${propName}": ${extensionName},\n`
 					code += `\t"!${propName}": ${extensionName},\n`
 				}
@@ -72,7 +76,7 @@ export const config: unknown = createConfig({
 			generator(session) {
 				let code = `export type x509ExtensionNames = [\n`
 
-				for (const extensionName of getx509ExtensionNames(session.project.root)) {
+				for (const {extensionName} of getx509ExtensionNames(session.project.root)) {
 					code += `\t"${extensionName}",\n`
 					code += `\t"!${extensionName}",\n`
 				}
@@ -93,7 +97,7 @@ export const config: unknown = createConfig({
 
 				code += `\treturn [\n`
 
-				for (const extensionName of getx509ExtensionNames(session.project.root)) {
+				for (const {extensionName} of getx509ExtensionNames(session.project.root)) {
 					code += `\t\t"${extensionName}",\n`
 					code += `\t\t"!${extensionName}",\n`
 				}
