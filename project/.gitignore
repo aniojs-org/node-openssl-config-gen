@@ -3,3 +3,4 @@
 /src/types/x509Extensions.mts
 /src/types/x509ExtensionNames.mts
 /src/getx509ExtensionNames.mts
+/src/_generatex509ExtensionSection.mts

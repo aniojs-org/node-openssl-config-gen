@@ -12,6 +12,9 @@
         },
         "project/src/getx509ExtensionNames.mts": {
             "hash": "84436daf0f0c4a1213c0e74d29fee08568d1ec3d06feedad0355ec5562140600"
+        },
+        "project/src/_generatex509ExtensionSection.mts": {
+            "hash": "10547fcbe9c24ba75edf4b48f09343706333ac419c710b710d92e866060ff4ab"
         }
     },
     "toolchain": [
