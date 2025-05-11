@@ -3,5 +3,5 @@ import type {SubjectKeyIdentifier} from "#~src/types/x509Extensions/SubjectKeyId
 export function convertSubjectKeyIdentifier(
 	value: SubjectKeyIdentifier
 ): string {
-	return ""
+	return value
 }
