@@ -7,17 +7,6 @@ import type {KeyUsage} from "./x509Extensions/KeyUsage.mts"
 import type {NameConstraints} from "./x509Extensions/NameConstraints.mts"
 import type {SubjectAltName} from "./x509Extensions/SubjectAltName.mts"
 
-export type x509ExtensionNames = [
-	"AuthorityKeyIdentifier",
-	"SubjectKeyIdentifier",
-	"BasicConstraints",
-	"CRLDistributionPoints",
-	"ExtendedKeyUsage",
-	"KeyUsage",
-	"NameConstraints",
-	"SubjectAltName"
-]
-
 export type x509Extensions = Partial<{
 	"AuthorityKeyIdentifier": AuthorityKeyIdentifier
 	"SubjectKeyIdentifier": SubjectKeyIdentifier,
