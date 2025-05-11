@@ -3,5 +3,5 @@ import type {AuthorityKeyIdentifier} from "#~src/types/x509Extensions/AuthorityK
 export function convertAuthorityKeyIdentifier(
 	value: AuthorityKeyIdentifier
 ): string {
-	return ""
+	return value
 }
