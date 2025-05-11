@@ -1,6 +1,6 @@
 {
   "name": "@aniojs/node-openssl-config-gen",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Anio Software <info@anio.software>",
   "description": "A small openssl config generator.",
   "license": "MIT",
