@@ -76,9 +76,9 @@ export const config: unknown = createConfig({
 			generator(session) {
 				let code = `export type x509ExtensionNames = [\n`
 
-				for (const {extensionName} of getx509ExtensionNames(session.project.root)) {
-					code += `\t"${extensionName}",\n`
-					code += `\t"!${extensionName}",\n`
+				for (const {propName} of getx509ExtensionNames(session.project.root)) {
+					code += `\t"${propName}",\n`
+					code += `\t"!${propName}",\n`
 				}
 
 				code += `]\n`
@@ -97,9 +97,9 @@ export const config: unknown = createConfig({
 
 				code += `\treturn [\n`
 
-				for (const {extensionName} of getx509ExtensionNames(session.project.root)) {
-					code += `\t\t"${extensionName}",\n`
-					code += `\t\t"!${extensionName}",\n`
+				for (const {propName} of getx509ExtensionNames(session.project.root)) {
+					code += `\t\t"${propName}",\n`
+					code += `\t\t"!${propName}",\n`
 				}
 
 				code += `\t]\n`
