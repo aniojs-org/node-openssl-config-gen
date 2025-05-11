@@ -3,5 +3,5 @@ import type {ExtendedKeyUsage} from "#~src/types/x509Extensions/ExtendedKeyUsage
 export function convertExtendedKeyUsage(
 	value: ExtendedKeyUsage
 ): string {
-	return ""
+	return Array.isArray(value) ? value.join(",") : value
 }
