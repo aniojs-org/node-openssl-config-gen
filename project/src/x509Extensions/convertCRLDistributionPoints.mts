@@ -3,5 +3,5 @@ import type {CRLDistributionPoints} from "#~src/types/x509Extensions/CRLDistribu
 export function convertCRLDistributionPoints(
 	value: CRLDistributionPoints
 ): string {
-	return ""
+	return Array.isArray(value) ? value.join(",") : value
 }
