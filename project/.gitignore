@@ -1,4 +1,5 @@
 # This file is automatically managed by enkore
 # DO NOT ADD ENTRIES HERE, THEY WILL BE REMOVED
+/src/types/x509Extensions.mts
 /src/types/x509ExtensionNames.mts
 /src/getx509ExtensionNames.mts
